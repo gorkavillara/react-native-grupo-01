@@ -1,14 +1,6 @@
 import { StyleSheet, View, ImageBackground, Button, Switch } from "react-native"
-import { Contador, HPSearch, ContadorMejorado, ListaTareas } from "./screens"
 import AppContextProvider from "./contexts/AppContextProvider"
 import ToggleDarkMode from "./components/common/ToggleDarkMode"
-import ContadorGlobal from "./screens/ContadorGlobal"
-import ContadorIndividual from "./screens/ContadorIndividual"
-import ContadorConHook from "./screens/ContadorConHook"
-import RMFetch from "./screens/RMFetch"
-import RMFetchConHook from "./screens/RMFetchConHook"
-import Inputs from "./screens/Inputs"
-import HooksConcurrencia from "./screens/HooksConcurrencia"
 
 function App() {
     return (
@@ -33,7 +25,6 @@ function App() {
                     {/* <RMFetch /> */}
                     {/* <RMFetchConHook /> */}
                     {/* <Inputs /> */}
-                    <HooksConcurrencia />
                     <ToggleDarkMode />
                 </ImageBackground>
             </View>
