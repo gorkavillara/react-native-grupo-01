@@ -3,6 +3,8 @@ import { Contador, HPSearch, ContadorMejorado, ListaTareas } from "./screens"
 import AppContextProvider from "./contexts/AppContextProvider"
 import ToggleDarkMode from "./components/common/ToggleDarkMode"
 import ContadorGlobal from "./screens/ContadorGlobal"
+import ContadorIndividual from "./screens/ContadorIndividual"
+import ContadorConHook from "./screens/ContadorConHook"
 
 function App() {
     return (
@@ -21,7 +23,9 @@ function App() {
                     /> */}
                     {/* <ContadorMejorado /> */}
                     {/* <ListaTareas /> */}
-                    <ContadorGlobal />
+                    {/* <ContadorGlobal /> */}
+                    <ContadorIndividual />
+                    <ContadorConHook />
                     <ToggleDarkMode />
                 </ImageBackground>
             </View>
