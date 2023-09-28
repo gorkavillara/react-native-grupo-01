@@ -2,8 +2,7 @@ import AppContextProvider from "./contexts/AppContextProvider"
 import ToggleDarkMode from "./components/common/ToggleDarkMode"
 import AppLayout from "./layouts/AppLayout"
 import { PaperProvider } from "react-native-paper"
-import StyledScreen from "./screens/StyledScreen"
-import PaperScreen from "./screens/PaperScreen"
+import WindScreen from "./screens/WindScreen"
 
 function App() {
     return (
@@ -11,7 +10,8 @@ function App() {
             <AppContextProvider>
                 <AppLayout>
                     {/* <StyledScreen /> */}
-                    <PaperScreen />
+                    {/* <PaperScreen /> */}
+                    <WindScreen />
                     <ToggleDarkMode />
                 </AppLayout>
             </AppContextProvider>
