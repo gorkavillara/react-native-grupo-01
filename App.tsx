@@ -5,6 +5,8 @@ import ToggleDarkMode from "./components/common/ToggleDarkMode"
 import ContadorGlobal from "./screens/ContadorGlobal"
 import ContadorIndividual from "./screens/ContadorIndividual"
 import ContadorConHook from "./screens/ContadorConHook"
+import RMFetch from "./screens/RMFetch"
+import RMFetchConHook from "./screens/RMFetchConHook"
 
 function App() {
     return (
@@ -24,8 +26,10 @@ function App() {
                     {/* <ContadorMejorado /> */}
                     {/* <ListaTareas /> */}
                     {/* <ContadorGlobal /> */}
-                    <ContadorIndividual />
-                    <ContadorConHook />
+                    {/* <ContadorIndividual /> */}
+                    {/* <ContadorConHook /> */}
+                    {/* <RMFetch /> */}
+                    <RMFetchConHook />
                     <ToggleDarkMode />
                 </ImageBackground>
             </View>
