@@ -2,6 +2,7 @@ import { StyleSheet, View, ImageBackground, Button, Switch } from "react-native"
 import { Contador, HPSearch, ContadorMejorado, ListaTareas } from "./screens"
 import AppContextProvider from "./contexts/AppContextProvider"
 import ToggleDarkMode from "./components/common/ToggleDarkMode"
+import ContadorGlobal from "./screens/ContadorGlobal"
 
 function App() {
     return (
@@ -18,8 +19,9 @@ function App() {
                         title={muestraHP ? "Oculta HP" : "Muestra HP"}
                         onPress={() => setMuestraHP((prev) => !prev)}
                     /> */}
-                    <ContadorMejorado />
+                    {/* <ContadorMejorado /> */}
                     {/* <ListaTareas /> */}
+                    <ContadorGlobal />
                     <ToggleDarkMode />
                 </ImageBackground>
             </View>
