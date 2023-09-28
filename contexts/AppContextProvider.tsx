@@ -4,6 +4,7 @@ import React, {
     PropsWithChildren,
     useReducer,
 } from "react"
+import { useColorScheme } from "react-native"
 
 interface IAppContext {
     darkMode: boolean
@@ -31,7 +32,9 @@ const reductor = (
 const devuelveElDoble = (val: number) => 2 * val
 
 const AppContextProvider = ({ children }: PropsWithChildren) => {
-    const [darkMode, setDarkMode] = useState(false)
+    const scheme = useColorScheme()
+    const [darkMode, setDarkMode] = useState(scheme === "light" ? false : true)
+    
     // const [contador, setContador] = useState(10)
 
     // const duplicaContador = () => setContador(prev => devuelveElDoble(prev))
