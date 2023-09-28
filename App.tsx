@@ -1,21 +1,16 @@
 import AppContextProvider from "./contexts/AppContextProvider"
 import ToggleDarkMode from "./components/common/ToggleDarkMode"
 import AppLayout from "./layouts/AppLayout"
-import { PaperProvider } from "react-native-paper"
-import StyledScreen from "./screens/StyledScreen"
-import PaperScreen from "./screens/PaperScreen"
+import ImageResponsive from "./components/ImageResponsive"
 
 function App() {
     return (
-        <PaperProvider>
             <AppContextProvider>
                 <AppLayout>
-                    {/* <StyledScreen /> */}
-                    <PaperScreen />
+                    <ImageResponsive />
                     <ToggleDarkMode />
                 </AppLayout>
             </AppContextProvider>
-        </PaperProvider>
     )
 }
 
