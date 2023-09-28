@@ -10,24 +10,31 @@ interface IAppContext {
     setDarkMode: React.Dispatch<React.SetStateAction<boolean>>
     contador: number
     dispatchContador: React.Dispatch<{
-        type: string
+        type: ReductorActions
         payload?: any
     }>
 }
 
 export const AppContext = createContext<IAppContext>(null!)
 
+type ReductorActions = "devuelveElDoble" | "incrementaEnUno"
+
 const reductor = (
     state: number,
-    action: { type: string; payload?: any }
+    action: { type: ReductorActions; payload?: any }
 ): number => {
     if (action.type === "devuelveElDoble") return state * 2
     if (action.type === "incrementaEnUno") return state + 1
     return state
 }
 
+const devuelveElDoble = (val: number) => 2 * val
+
 const AppContextProvider = ({ children }: PropsWithChildren) => {
     const [darkMode, setDarkMode] = useState(false)
+    // const [contador, setContador] = useState(10)
+
+    // const duplicaContador = () => setContador(prev => devuelveElDoble(prev))
 
     const [contador, dispatchContador] = useReducer(reductor, 12)
 
