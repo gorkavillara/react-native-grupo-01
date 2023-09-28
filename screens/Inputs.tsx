@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, TextInput, Pressable } from "react-native"
-import React, { useRef } from "react"
+import React, { useRef, useId } from "react"
 
 const Inputs = () => {
     const inputRef = useRef<TextInput>(null)
@@ -11,10 +11,13 @@ const Inputs = () => {
         // inputRef.current.blur() // Desenfoca del componente
     }
 
+    const id = useId()
+
     return (
         <View style={styles.container}>
             <Text>Inputs</Text>
             <TextInput
+                id={id}
                 ref={inputRef}
                 style={{
                     borderWidth: 1,
