@@ -7,6 +7,7 @@ import ContadorIndividual from "./screens/ContadorIndividual"
 import ContadorConHook from "./screens/ContadorConHook"
 import RMFetch from "./screens/RMFetch"
 import RMFetchConHook from "./screens/RMFetchConHook"
+import Inputs from "./screens/Inputs"
 
 function App() {
     return (
@@ -29,7 +30,8 @@ function App() {
                     {/* <ContadorIndividual /> */}
                     {/* <ContadorConHook /> */}
                     {/* <RMFetch /> */}
-                    <RMFetchConHook />
+                    {/* <RMFetchConHook /> */}
+                    <Inputs />
                     <ToggleDarkMode />
                 </ImageBackground>
             </View>
