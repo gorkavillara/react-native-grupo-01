@@ -1,21 +1,21 @@
 import "react-native-gesture-handler"
 
-import AppContextProvider from "./contexts/AppContextProvider"
+import { RecoilRoot } from "recoil"
 import { StatusBar } from "expo-status-bar"
 import { NavigationContainer } from "@react-navigation/native"
-import DrawerNavigator from "./navigation/drawer/DrawerNavigator"
+import { NativeStoreStack } from "./navigation/stacks"
 
 function App() {
     return (
-        <AppContextProvider>
+        <RecoilRoot>
             <NavigationContainer>
                 {/* <StoreStack /> */}
-                {/* <NativeStoreStack /> */}
+                <NativeStoreStack />
                 {/* <TabNavigator /> */}
-                <DrawerNavigator />
+                {/* <DrawerNavigator /> */}
             </NavigationContainer>
             <StatusBar style="auto" />
-        </AppContextProvider>
+        </RecoilRoot>
     )
 }
 

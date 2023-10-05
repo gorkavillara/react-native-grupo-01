@@ -6,7 +6,7 @@ import {
     View,
 } from "react-native"
 import React from "react"
-import type { StackScreens } from "../navigation/stacks/StoreStack"
+import type { StackScreens } from "../navigation/stacks/NativeStoreStack"
 import type { StackScreenProps } from "@react-navigation/stack"
 import { standardStyles } from "../styles"
 import { BlurView } from "expo-blur"
@@ -41,6 +41,28 @@ const Home = ({ navigation }: StackScreenProps<StackScreens, "Home">) => {
                     onPress={() => navigation.navigate("Store")}
                 >
                     <Text style={{ fontSize: 18 }}>Acceder a la tienda</Text>
+                </Pressable>
+                <Pressable
+                    style={{
+                        paddingVertical: 16,
+                        paddingHorizontal: 32,
+                        backgroundColor: "white",
+                        borderRadius: 32,
+                    }}
+                    onPress={() => navigation.navigate("Contador")}
+                >
+                    <Text style={{ fontSize: 18 }}>Acceder al contador</Text>
+                </Pressable>
+                <Pressable
+                    style={{
+                        paddingVertical: 16,
+                        paddingHorizontal: 32,
+                        backgroundColor: "white",
+                        borderRadius: 32,
+                    }}
+                    onPress={() => navigation.navigate("PokemonFinder")}
+                >
+                    <Text style={{ fontSize: 18 }}>Acceder a PokeFinder</Text>
                 </Pressable>
             </BlurView>
         </ImageBackground>
