@@ -3,7 +3,7 @@
     "name": "mi-primera-app-con-expo",
     "slug": "mi-primera-app-con-expo",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
