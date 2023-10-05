@@ -6,7 +6,7 @@ import {
     View,
 } from "react-native"
 import React from "react"
-import type { StackScreens } from "../stacks/StoreStack"
+import type { StackScreens } from "../navigation/stacks/StoreStack"
 import type { StackScreenProps } from "@react-navigation/stack"
 import { standardStyles } from "../styles"
 import { BlurView } from "expo-blur"

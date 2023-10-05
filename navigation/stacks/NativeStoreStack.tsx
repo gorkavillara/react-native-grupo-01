@@ -1,6 +1,6 @@
 import { View, Text } from "react-native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { Details, Home, Store } from "../screens"
+import { Details, Home, Store } from "../../screens"
 
 export type StackScreens = {
     Home: undefined // La Home no acepta props

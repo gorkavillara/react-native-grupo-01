@@ -3,9 +3,12 @@ import type { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { products } from "../assets/products"
 import Icon from "react-native-vector-icons/Ionicons"
 import React from "react"
-import { StackScreens } from "../stacks/StoreStack"
+import { StackScreens } from "../navigation/stacks/StoreStack"
 
-const Details = ({ route, navigation }: NativeStackScreenProps<StackScreens, "Details">) => {
+const Details = ({
+    route,
+    navigation,
+}: NativeStackScreenProps<StackScreens, "Details">) => {
     const { itemId } = route.params
     const product = products.find((prod) => prod.id === itemId)
     if (!product)
@@ -15,6 +18,7 @@ const Details = ({ route, navigation }: NativeStackScreenProps<StackScreens, "De
             </View>
         )
 
+    navigation.setOptions({ title: product.title })
     return (
         <>
             <View style={{ flex: 1 }}>
@@ -27,7 +31,7 @@ const Details = ({ route, navigation }: NativeStackScreenProps<StackScreens, "De
                     flexDirection: "row",
                     justifyContent: "center",
                     alignItems: "center",
-                    gap: 16
+                    gap: 16,
                 }}
                 onPress={() => navigation.goBack()}
             >

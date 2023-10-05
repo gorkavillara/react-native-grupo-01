@@ -3,7 +3,7 @@ import React from "react"
 import { Article } from "../../../models"
 import { useNavigation } from "@react-navigation/native"
 import type { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { StackScreens } from "../../../stacks/StoreStack"
+import { StackScreens } from "../../../navigation/stacks/StoreStack"
 
 const ArticleCard = ({ article }: { article: Article }) => {
     const navigation = useNavigation<NativeStackScreenProps<StackScreens, "Details">>()
@@ -15,7 +15,7 @@ const ArticleCard = ({ article }: { article: Article }) => {
     }
     return (
         <View style={styles.card}>
-            <Image source={{ uri: article.image }} />
+            <Image source={{ uri: article.image }} style={styles.image} />
             <Text style={styles.title}>{article.title}</Text>
             <Text style={styles.price}>$ {article.price}</Text>
             <Pressable style={styles.button} onPress={redirectToDetails}>
@@ -31,10 +31,16 @@ const styles = StyleSheet.create({
     card: {
         overflow: "hidden",
         width: 150,
+        minHeight: 200,
         borderWidth: 1,
         borderColor: "#8888",
         borderRadius: 8,
+        justifyContent: "space-between",
         gap: 8,
+        margin: 8
+    },
+    image: {
+        height: 50
     },
     title: {
         fontWeight: "600",
