@@ -3,8 +3,7 @@ import "react-native-gesture-handler"
 import AppContextProvider from "./contexts/AppContextProvider"
 import { StatusBar } from "expo-status-bar"
 import { NavigationContainer } from "@react-navigation/native"
-import { StoreStack, NativeStoreStack } from "./navigation/stacks"
-import TabNavigator from "./navigation/tabs/TabNavigator"
+import DrawerNavigator from "./navigation/drawer/DrawerNavigator"
 
 function App() {
     return (
@@ -12,7 +11,8 @@ function App() {
             <NavigationContainer>
                 {/* <StoreStack /> */}
                 {/* <NativeStoreStack /> */}
-                <TabNavigator />
+                {/* <TabNavigator /> */}
+                <DrawerNavigator />
             </NavigationContainer>
             <StatusBar style="auto" />
         </AppContextProvider>
