@@ -1,16 +1,19 @@
+import "react-native-gesture-handler"
+
 import AppContextProvider from "./contexts/AppContextProvider"
-import ToggleDarkMode from "./components/common/ToggleDarkMode"
-import AppLayout from "./layouts/AppLayout"
-import { WindowDimensions } from "./screens"
+import { StatusBar } from "expo-status-bar"
+import { NavigationContainer } from "@react-navigation/native"
+import { StoreStack, NativeStoreStack } from "./stacks"
 
 function App() {
     return (
-            <AppContextProvider>
-                <AppLayout>
-                    <WindowDimensions />
-                    <ToggleDarkMode />
-                </AppLayout>
-            </AppContextProvider>
+        <AppContextProvider>
+            <NavigationContainer>
+                {/* <StoreStack /> */}
+                <NativeStoreStack />
+            </NavigationContainer>
+            <StatusBar style="auto" />
+        </AppContextProvider>
     )
 }
 

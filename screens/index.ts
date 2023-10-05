@@ -1,3 +1,5 @@
-import WindowDimensions from "./WindowDimensions"
+import Home from "./Home"
+import Store from "./Store/Store"
+import Details from "./Details"
 
-export { WindowDimensions }
+export { Home, Store, Details }
