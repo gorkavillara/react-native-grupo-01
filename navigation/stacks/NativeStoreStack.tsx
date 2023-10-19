@@ -13,27 +13,43 @@ export type StackScreens = {
 
 const Stack = createNativeStackNavigator<StackScreens>()
 
+// TODO: Crear estado logueado
+// TODO: Revisar estado asíncrono
+// TODO: Crear pantalla de Login
+
 const StoreStack = () => {
+    const isLoggedIn = true
     return (
         <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen
-                name="Home"
-                component={Home}
-                options={({ navigation, route }) => {
-                    return { title: "Mi App", headerShown: false }
-                }}
-            />
-            <Stack.Screen
-                name="Store"
-                component={Store}
-                options={{
-                    animation: "slide_from_bottom",
-                    animationDuration: 1000,
-                }}
-            />
-            <Stack.Screen name="Details" component={Details} />
-            <Stack.Screen name="Contador" component={Contador} />
-            <Stack.Screen name="PokemonFinder" component={PokemonFinder} />
+            {isLoggedIn ? (
+                <>
+                    <Stack.Screen
+                        name="Home"
+                        component={Home}
+                        options={({ navigation, route }) => {
+                            return { title: "Mi App", headerShown: false }
+                        }}
+                    />
+                    <Stack.Screen
+                        name="Store"
+                        component={Store}
+                        options={{
+                            animation: "slide_from_bottom",
+                            animationDuration: 1000,
+                        }}
+                    />
+                    <Stack.Screen name="Details" component={Details} />
+                    <Stack.Screen name="Contador" component={Contador} />
+                    <Stack.Screen
+                        name="PokemonFinder"
+                        component={PokemonFinder}
+                    />
+                </>
+            ) : (
+                <>
+                    <Stack.Screen name="Login" component={Contador} />
+                </>
+            )}
         </Stack.Navigator>
     )
 }
