@@ -4,7 +4,10 @@ import {
     View,
     Vibration,
     ToastAndroid,
+    Text,
 } from "react-native"
+import { useNavigation } from "@react-navigation/native"
+import Constants from "expo-constants"
 import { useState } from "react"
 import { Camera, BarCodeScanningResult } from "expo-camera"
 import { standardStyles } from "../styles"
@@ -20,6 +23,8 @@ const CameraScreen = () => {
         takePicture,
         openGallery,
     } = useCamera()
+
+    const navigation = useNavigation()
 
     const barCodeScanned = (scanningResult: BarCodeScanningResult) => {
         if (url === scanningResult.data) return
@@ -43,6 +48,9 @@ const CameraScreen = () => {
                 ref={cameraRef}
                 onBarCodeScanned={barCodeScanned}
             >
+                <Pressable style={styles.button} onPress={() => navigation.goBack()}>
+                    <Icon name="arrow-back" size={24} color="white" />
+                </Pressable>
                 <View style={styles.cameraButtons}>
                     <Pressable style={styles.button} onPress={changeCameraType}>
                         <Icon name="camera-reverse" size={24} color="white" />
@@ -65,10 +73,12 @@ const styles = StyleSheet.create({
     camera: {
         width: "100%",
         height: "100%",
-        justifyContent: "flex-end",
+        paddingTop: Constants.statusBarHeight,
+        paddingHorizontal: 24,
+        justifyContent: "space-between",
     },
     cameraButtons: {
-        padding: 24,
+        paddingVertical: 24,
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "flex-end",
