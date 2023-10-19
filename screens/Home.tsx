@@ -6,26 +6,26 @@ import {
     View,
 } from "react-native"
 import React from "react"
-import type { StackScreens } from "../navigation/stacks/NativeStoreStack"
+import type { StackScreensLoggedIn } from "../navigation/stacks/NativeStoreStack"
 import type { StackScreenProps } from "@react-navigation/stack"
 import { standardStyles } from "../styles"
-import { BlurView } from "expo-blur"
+import { useUser } from "../hooks/useUser"
 
-const Home = ({ navigation }: StackScreenProps<StackScreens, "Home">) => {
+const Home = ({ navigation }: StackScreenProps<StackScreensLoggedIn, "Home">) => {
+    const { logout } = useUser()
     return (
         <ImageBackground
             source={require("../assets/HomeImage.jpg")}
             style={standardStyles.container}
         >
-            <BlurView
-                intensity={30}
-                tint="dark"
+            <View
                 style={{
                     flex: 1,
                     width: "100%",
                     justifyContent: "center",
                     alignItems: "center",
                     gap: 16,
+                    backgroundColor: "#5556",
                 }}
             >
                 <Text style={[standardStyles.text, { color: "white" }]}>
@@ -64,7 +64,10 @@ const Home = ({ navigation }: StackScreenProps<StackScreens, "Home">) => {
                 >
                     <Text style={{ fontSize: 18 }}>Acceder a PokeFinder</Text>
                 </Pressable>
-            </BlurView>
+                <Pressable onPress={logout}>
+                    <Text style={{ color: "white" }}>Logout</Text>
+                </Pressable>
+            </View>
         </ImageBackground>
     )
 }

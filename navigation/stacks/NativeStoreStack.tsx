@@ -2,8 +2,10 @@ import { View, Text } from "react-native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { Contador, Details, Home, Store } from "../../screens"
 import PokemonFinder from "../../screens/PokemonFinder/PokemonFinder"
+import Login from "../../screens/Login"
+import { useUser } from "../../hooks/useUser"
 
-export type StackScreens = {
+export type StackScreensLoggedIn = {
     Home: undefined // La Home no acepta props
     Store: undefined
     Details: { itemId: number } // Los Details sí van a aceptar props
@@ -11,46 +13,51 @@ export type StackScreens = {
     PokemonFinder: undefined
 }
 
-const Stack = createNativeStackNavigator<StackScreens>()
+export type StackScreensLoggedOut = {
+    Login: undefined
+}
+
+const StackLoggedIn = createNativeStackNavigator<StackScreensLoggedIn>()
+const StackLoggedOut = createNativeStackNavigator<StackScreensLoggedOut>()
 
 // TODO: Crear estado logueado
 // TODO: Revisar estado asíncrono
 // TODO: Crear pantalla de Login
 
 const StoreStack = () => {
-    const isLoggedIn = true
-    return (
-        <Stack.Navigator initialRouteName="Home">
-            {isLoggedIn ? (
-                <>
-                    <Stack.Screen
-                        name="Home"
-                        component={Home}
-                        options={({ navigation, route }) => {
-                            return { title: "Mi App", headerShown: false }
-                        }}
-                    />
-                    <Stack.Screen
-                        name="Store"
-                        component={Store}
-                        options={{
-                            animation: "slide_from_bottom",
-                            animationDuration: 1000,
-                        }}
-                    />
-                    <Stack.Screen name="Details" component={Details} />
-                    <Stack.Screen name="Contador" component={Contador} />
-                    <Stack.Screen
-                        name="PokemonFinder"
-                        component={PokemonFinder}
-                    />
-                </>
-            ) : (
-                <>
-                    <Stack.Screen name="Login" component={Contador} />
-                </>
-            )}
-        </Stack.Navigator>
+    const { isLoggedIn } = useUser()
+    return isLoggedIn ? (
+        <StackLoggedIn.Navigator initialRouteName="Home">
+            <StackLoggedIn.Screen
+                name="Home"
+                component={Home}
+                options={({ navigation, route }) => {
+                    return { title: "Mi App", headerShown: false }
+                }}
+            />
+            <StackLoggedIn.Screen
+                name="Store"
+                component={Store}
+                options={{
+                    animation: "slide_from_bottom",
+                    animationDuration: 500,
+                }}
+            />
+            <StackLoggedIn.Screen name="Details" component={Details} />
+            <StackLoggedIn.Screen name="Contador" component={Contador} />
+            <StackLoggedIn.Screen
+                name="PokemonFinder"
+                component={PokemonFinder}
+            />
+        </StackLoggedIn.Navigator>
+    ) : (
+        <StackLoggedOut.Navigator initialRouteName="Login">
+            <StackLoggedOut.Screen
+                options={{ headerShown: false }}
+                name="Login"
+                component={Login}
+            />
+        </StackLoggedOut.Navigator>
     )
 }
 
