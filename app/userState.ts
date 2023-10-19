@@ -7,8 +7,8 @@ export interface User {
 }
 
 export const user = atom<null | User>({
-    // default: { id: 1, username: "Gorka", role: "Customer" },
-    default: null,
+    default: { id: 1, username: "Gorka", role: "Customer" },
+    // default: null,
     key: "user",
 })
 
