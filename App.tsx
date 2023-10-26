@@ -1,28 +1,17 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StatusBar } from "expo-status-bar"
+import { NavigationContainer } from "@react-navigation/native"
+import { RecoilRoot } from "recoil"
+import NativeStack from "./navigation/stacks/NativeStack"
 
 function App() {
-  return (
-    <>
-      <View style={styles.container}>
-        <Text style={styles.texto}>¡Hola mundo!</Text>
-        <StatusBar style="auto" />
-      </View>
-    </>
-  );
+    return (
+        <RecoilRoot>
+            <NavigationContainer>
+                <NativeStack />
+                <StatusBar style="light" />
+            </NavigationContainer>
+        </RecoilRoot>
+    )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  texto: {
-    color: "blue",
-    fontSize: 32,
-  },
-});
-
-export default App;
+export default App
