@@ -6,6 +6,7 @@ import {
     Home,
     Store,
     NotificationsScreen,
+    ContactsScreen,
 } from "../../screens"
 import PokemonFinder from "../../screens/PokemonFinder/PokemonFinder"
 import Login from "../../screens/Login"
@@ -22,6 +23,7 @@ export type StackScreensLoggedIn = {
     CameraScreen: undefined
     MapsScreen: undefined
     NotificationsScreen: undefined
+    ContactsScreen: undefined
 }
 
 export type StackScreensLoggedOut = {
@@ -30,10 +32,6 @@ export type StackScreensLoggedOut = {
 
 const StackLoggedIn = createNativeStackNavigator<StackScreensLoggedIn>()
 const StackLoggedOut = createNativeStackNavigator<StackScreensLoggedOut>()
-
-// TODO: Crear estado logueado
-// TODO: Revisar estado asíncrono
-// TODO: Crear pantalla de Login
 
 const StoreStack = () => {
     const { isLoggedIn } = useUser()
@@ -73,6 +71,10 @@ const StoreStack = () => {
             <StackLoggedIn.Screen
                 name="NotificationsScreen"
                 component={NotificationsScreen}
+            />
+            <StackLoggedIn.Screen
+                name="ContactsScreen"
+                component={ContactsScreen}
             />
         </StackLoggedIn.Navigator>
     ) : (

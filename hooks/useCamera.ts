@@ -1,6 +1,7 @@
-import { ToastAndroid, Linking } from "react-native"
+import { ToastAndroid, Linking, Alert, AlertButton } from "react-native"
 import { Camera, CameraType } from "expo-camera"
 import * as MediaLibrary from "expo-media-library"
+import * as Sharing from "expo-sharing"
 import { useEffect, useState, useRef } from "react"
 
 export const useCamera = () => {
@@ -25,7 +26,7 @@ export const useCamera = () => {
 
             requestPermission()
         }
-    }, [])
+    }, [permission])
 
     const openGallery = () => {
         const intent = "content://media/internal/images/media"
@@ -39,6 +40,28 @@ export const useCamera = () => {
             prev === CameraType.back ? CameraType.front : CameraType.back
         )
 
+    const showPromptToSharePicture = (uri: string) => {
+        const buttons: AlertButton[] = [
+            { text: "Compartir", onPress: () => sharePicture(uri) },
+            { text: "Cancelar", onPress: () => console.log("Cancelar") },
+        ]
+        Alert.alert("Compartir foto", "📷 ¿Quieres compartir esta foto?", buttons)
+    }
+
+    const sharePicture = (uri: string) => {
+        Sharing.isAvailableAsync()
+            .then(can => {
+                if (!can) {
+                    Alert.alert("Este dispositivo no puede compartir")
+                    return
+                }
+
+                Sharing.shareAsync(uri)
+                    .then(console.log)
+                    .catch(console.log)
+            })
+    }
+
     const takePicture = () => {
         if (!cameraRef.current) return
         // Tenemos que sacar una foto
@@ -46,9 +69,10 @@ export const useCamera = () => {
             ToastAndroid.show("¡Foto tomada correctamente!", 300)
             if (mediaPermission) {
                 MediaLibrary.saveToLibraryAsync(info.uri)
-                    .then(() =>
+                    .then(() => {
                         ToastAndroid.show("✅ Foto guardada con éxito", 300)
-                    )
+                        showPromptToSharePicture(info.uri)
+                    })
                     .catch(() =>
                         ToastAndroid.show("❌ Ha habido algún error", 300)
                     )

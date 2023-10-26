@@ -65,6 +65,17 @@ const Home = ({
                 >
                     <Text style={{ fontSize: 18 }}>Notificaciones</Text>
                 </Pressable>
+                <Pressable
+                    style={{
+                        paddingVertical: 16,
+                        paddingHorizontal: 32,
+                        backgroundColor: "white",
+                        borderRadius: 32,
+                    }}
+                    onPress={() => navigation.navigate("ContactsScreen")}
+                >
+                    <Text style={{ fontSize: 18 }}>Contactos</Text>
+                </Pressable>
                 {/* <Pressable
                     style={{
                         paddingVertical: 16,
