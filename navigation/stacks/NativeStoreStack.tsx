@@ -5,6 +5,7 @@ import PokemonFinder from "../../screens/PokemonFinder/PokemonFinder"
 import Login from "../../screens/Login"
 import { useUser } from "../../hooks/useUser"
 import CameraScreen from "../../screens/CameraScreen"
+import MapsScreen from "../../screens/MapsScreen"
 
 export type StackScreensLoggedIn = {
     Home: undefined // La Home no acepta props
@@ -13,6 +14,7 @@ export type StackScreensLoggedIn = {
     Contador: undefined
     PokemonFinder: undefined
     CameraScreen: undefined
+    MapsScreen: undefined
 }
 
 export type StackScreensLoggedOut = {
@@ -55,6 +57,11 @@ const StoreStack = () => {
                 options={{ headerShown: false }}
                 name="CameraScreen"
                 component={CameraScreen}
+            />
+            <StackLoggedIn.Screen
+                options={{ headerShown: false }}
+                name="MapsScreen"
+                component={MapsScreen}
             />
         </StackLoggedIn.Navigator>
     ) : (

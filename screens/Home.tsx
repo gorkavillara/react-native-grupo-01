@@ -1,10 +1,8 @@
 import {
     ImageBackground,
     Pressable,
-    StyleSheet,
     Text,
     View,
-    NativeModule,
 } from "react-native"
 import React from "react"
 import type { StackScreensLoggedIn } from "../navigation/stacks/NativeStoreStack"
@@ -44,6 +42,17 @@ const Home = ({
                     onPress={() => navigation.navigate("CameraScreen")}
                 >
                     <Text style={{ fontSize: 18 }}>Cámara</Text>
+                </Pressable>
+                <Pressable
+                    style={{
+                        paddingVertical: 16,
+                        paddingHorizontal: 32,
+                        backgroundColor: "white",
+                        borderRadius: 32,
+                    }}
+                    onPress={() => navigation.navigate("MapsScreen")}
+                >
+                    <Text style={{ fontSize: 18 }}>Mapas</Text>
                 </Pressable>
                 {/* <Pressable
                     style={{
