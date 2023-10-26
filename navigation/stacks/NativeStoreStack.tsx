@@ -1,6 +1,12 @@
 import { View, Text } from "react-native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { Contador, Details, Home, Store } from "../../screens"
+import {
+    Contador,
+    Details,
+    Home,
+    Store,
+    NotificationsScreen,
+} from "../../screens"
 import PokemonFinder from "../../screens/PokemonFinder/PokemonFinder"
 import Login from "../../screens/Login"
 import { useUser } from "../../hooks/useUser"
@@ -15,6 +21,7 @@ export type StackScreensLoggedIn = {
     PokemonFinder: undefined
     CameraScreen: undefined
     MapsScreen: undefined
+    NotificationsScreen: undefined
 }
 
 export type StackScreensLoggedOut = {
@@ -62,6 +69,10 @@ const StoreStack = () => {
                 options={{ headerShown: false }}
                 name="MapsScreen"
                 component={MapsScreen}
+            />
+            <StackLoggedIn.Screen
+                name="NotificationsScreen"
+                component={NotificationsScreen}
             />
         </StackLoggedIn.Navigator>
     ) : (

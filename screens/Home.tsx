@@ -54,6 +54,17 @@ const Home = ({
                 >
                     <Text style={{ fontSize: 18 }}>Mapas</Text>
                 </Pressable>
+                <Pressable
+                    style={{
+                        paddingVertical: 16,
+                        paddingHorizontal: 32,
+                        backgroundColor: "white",
+                        borderRadius: 32,
+                    }}
+                    onPress={() => navigation.navigate("NotificationsScreen")}
+                >
+                    <Text style={{ fontSize: 18 }}>Notificaciones</Text>
+                </Pressable>
                 {/* <Pressable
                     style={{
                         paddingVertical: 16,
